@@ -1,9 +1,8 @@
-package work1_Range.Range;
+package work1_Range.range;
 
 public class Range {
     private double from;
     private double to;
-
 
     public Range(double from, double to) {
         this.from = from;
@@ -34,37 +33,32 @@ public class Range {
         return (inputNumber >= from) && (inputNumber <= to);
     }
 
+    public Range getIntersection(Range range) {
+        double intersectionFrom = Math.max(range.from, this.from);
+        double intersectionTo = Math.min(range.to, to);
 
-    public Range getIntersection(Range range2) {
-        double from2 = range2.getFrom();
-        double to2 = range2.getTo();
-        double from1 = this.getFrom();
-        double to1 = this.getTo();
-        if ((from2 > from1 && from2 < to1) || (from2 < from1 && from2 > to1)) {
-            double intersectionFrom = Math.max(from2, from1);
-            double intersectionTo = Math.min(to2, to1);
+        if (intersectionFrom < intersectionTo) {
             return new Range(intersectionFrom, intersectionTo);
         }
         return null;
     }
 
-    public Range[] getUnion(Range range2) {
-        double from2 = range2.getFrom();
-        double to2 = range2.getTo();
-        double from1 = this.getFrom();
-        double to1 = this.getTo();
-        if (from2 <= Math.min(to2, to1) && from1 <= Math.min(to2, to1)) {
-            return new Range[]{new Range(Math.min(from2, from1), Math.max(to2, to1))};
+    public Range[] getUnion(Range range) {
+        if (this.from > range.to) {
+            return new Range[]{new Range(range.from, range.to), new Range(this.from, this.to)};
+        } else if (range.from > this.to) {
+            return new Range[]{new Range(this.from, this.to), new Range(range.from, range.to)};
         } else {
-            return new Range[]{new Range(from1, to1), new Range(from2, to2)};
+            return new Range[]{new Range(Math.min(this.from, range.from), Math.max(this.to, range.to))};
         }
     }
 
-    public Range[] getDifference(Range range2) {
-        double from2 = range2.getFrom();
-        double to2 = range2.getTo();
-        double from1 = this.getFrom();
-        double to1 = this.getTo();
+    public Range[] getDifference(Range range) {
+        double from2 = range.from;
+        double to2 = range.to;
+        double from1 = this.from;
+        double to1 = this.to;
+
         if (from1 < from2) {
             if (from2 < to1) {
                 if (to2 >= to1) {

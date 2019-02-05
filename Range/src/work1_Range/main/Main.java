@@ -1,6 +1,6 @@
-package work1_Range.Main;
+package work1_Range.main;
 
-import work1_Range.Range.Range;
+import work1_Range.range.Range;
 
 import java.util.Scanner;
 

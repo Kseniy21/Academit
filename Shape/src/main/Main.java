@@ -27,12 +27,12 @@ public class Main {
         System.out.println("Второй по величине периметр = " + secondMaxAreaShape.getPerimeter());
     }
 
-    public static Shape findMaxAreaShape(Shape[] shapes) {
+    private static Shape findMaxAreaShape(Shape[] shapes) {
         Arrays.sort(shapes, new AreaShapeCompare());
         return shapes[shapes.length - 1];
     }
 
-    public static Shape findSecondMaxPerimeterShape(Shape[] shapes) {
+    private static Shape findSecondMaxPerimeterShape(Shape[] shapes) {
         Arrays.sort(shapes, new PerimeterShapeCompare());
         return shapes[shapes.length - 2];
     }

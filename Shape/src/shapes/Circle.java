@@ -44,14 +44,11 @@ public class Circle implements Shape {
 
     @Override
     public int hashCode() {
-        int prime = 1;
-        int result = 5;
-        result = result * prime + Double.hashCode(radius);
-        return result;
+        return Double.hashCode(radius);
     }
 
     @Override
     public String toString() {
-        return "Радиус = " + radius;
+        return "Круг с радиусом = " + radius;
     }
 }

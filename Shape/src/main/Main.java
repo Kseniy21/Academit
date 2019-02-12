@@ -1,7 +1,7 @@
 package main;
 
-import comparator.AreaShapeCompare;
-import comparator.PerimeterShapeCompare;
+import comparator.AreaShapeComparator;
+import comparator.PerimeterShapeComparator;
 import shapes.*;
 
 import java.util.Arrays;
@@ -28,12 +28,12 @@ public class Main {
     }
 
     private static Shape findMaxAreaShape(Shape[] shapes) {
-        Arrays.sort(shapes, new AreaShapeCompare());
+        Arrays.sort(shapes, new AreaShapeComparator());
         return shapes[shapes.length - 1];
     }
 
     private static Shape findSecondMaxPerimeterShape(Shape[] shapes) {
-        Arrays.sort(shapes, new PerimeterShapeCompare());
+        Arrays.sort(shapes, new PerimeterShapeComparator());
         return shapes[shapes.length - 2];
     }
 }

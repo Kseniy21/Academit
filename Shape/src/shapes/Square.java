@@ -44,14 +44,11 @@ public class Square implements Shape {
 
     @Override
     public int hashCode() {
-        int prime = 1;
-        int result = 5;
-        result = result * prime + Double.hashCode(side);
-        return result;
+        return Double.hashCode(side);
     }
 
     @Override
     public String toString() {
-        return "Сторона = " + side;
+        return "Квадрат со стороной = " + side;
     }
 }

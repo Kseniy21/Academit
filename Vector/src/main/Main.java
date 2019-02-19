@@ -21,23 +21,23 @@ public class Main {
             System.out.println("Результат вычитания из вектора другого вектора:" + diffVector.differenceVector(v2));
 
             Vector multiScalarVector = new Vector(array1);
-            System.out.println("Результат умножения вектора на скаляр:" + multiScalarVector.multiplicationScalarVector(7));
+            System.out.println("Результат умножения вектора на скаляр:" + multiScalarVector.multiplicationScalar(7));
 
             Vector turnVector = new Vector(array1);
-            System.out.println("Результат разворота вектора:" + turnVector.turnVector());
+            System.out.println("Результат разворота вектора:" + turnVector.turn());
 
             Vector vectorLength = new Vector(array1);
-            System.out.println("Длина первого вектора:" + vectorLength.getLengthVector());
+            System.out.println("Длина первого вектора:" + vectorLength.getLength());
             Vector vectorLength2 = new Vector(array2);
-            System.out.println("Длина второго вектора:" + vectorLength2.getLengthVector());
+            System.out.println("Длина второго вектора:" + vectorLength2.getLength());
 
             Vector componentVector = new Vector(array1);
-            componentVector.setComponentsVector(3, 21);
-            System.out.println("Получение компоненты вектора по индексу:" + componentVector.getComponentsVector(3));
+            componentVector.setComponents(3, 21);
+            System.out.println("Получение компоненты вектора по индексу:" + componentVector.getComponents(3));
 
-            System.out.println("Сумма двух векторов:" + Vector.getSumVectors(v1, v2));
-            System.out.println("Разность двух векторов:" + Vector.getDifferenceVectors(v1, v2));
-            System.out.println("Умножение двух векторов на скаляр:" + Vector.getScalarMultiplyVectors(v1, v2));
+            System.out.println("Сумма двух векторов:" + Vector.getSum(v1, v2));
+            System.out.println("Разность двух векторов:" + Vector.getDifference(v1, v2));
+            System.out.println("Умножение двух векторов на скаляр:" + Vector.getScalarMultiply(v1, v2));
         } catch (IllegalArgumentException e) {
             System.out.println("Сообщение об ошибке" + e.getMessage());
         }

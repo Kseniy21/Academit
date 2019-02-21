@@ -118,7 +118,7 @@ public class Vector {
 
     @Override
     public int hashCode() {
-        return Double.hashCode(components.length);
+        return Arrays.hashCode(components);
     }
 
     public static Vector getSum(Vector v1, Vector v2) {
@@ -133,8 +133,8 @@ public class Vector {
 
     public static double getScalarMultiply(Vector v1, Vector v2) {
         double scalarMultiplyVector = 0;
-        int MinLengthVectors = Math.min(v1.getSize(), v2.getSize());
-        for (int i = 0; i < MinLengthVectors; i++) {
+        int minLengthVectors = Math.min(v1.getSize(), v2.getSize());
+        for (int i = 0; i < minLengthVectors; i++) {
             scalarMultiplyVector += v1.components[i] * v2.components[i];
         }
         return scalarMultiplyVector;

@@ -2,7 +2,6 @@ package main;
 
 import vector.Vector;
 
-
 public class Main {
     public static void main(String[] args) {
         double[] array1 = new double[]{1, 2, 3, 4, 5, 6, 7};

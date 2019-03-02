@@ -12,7 +12,7 @@ public class Vector {
         this.components = new double[n];
     }
 
-    private Vector(Vector vector) {
+    public Vector(Vector vector) {
         this.components = Arrays.copyOf(vector.components, vector.components.length);
     }
 
@@ -28,6 +28,13 @@ public class Vector {
             throw new IllegalArgumentException("Вектор не может иметь нулевую или отрицательную длину");
         }
         this.components = Arrays.copyOf(vector, n);
+    }
+
+    public Vector(int n, Vector vector) {
+        if (n <= 0) {
+            throw new IllegalArgumentException("Вектор не может иметь нулевую или отрицательную длину");
+        }
+        this.components = Arrays.copyOf(vector.components, n);
     }
 
     public int getSize() {
@@ -61,7 +68,7 @@ public class Vector {
             this.components = Arrays.copyOf(components, difVector.components.length);
         }
         for (int i = 0; i < difVector.getSize(); i++) {
-            this.components[i] += difVector.components[i];
+            this.components[i] -= difVector.components[i];
         }
         return this;
     }

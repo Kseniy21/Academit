@@ -31,8 +31,8 @@ public class Main {
             System.out.println("Длина второго вектора:" + vectorLength2.getLength());
 
             Vector componentVector = new Vector(array1);
-            componentVector.setComponents(3, 21);
-            System.out.println("Получение компоненты вектора по индексу:" + componentVector.getComponents(3));
+            componentVector.setComponent(3, 21);
+            System.out.println("Получение компоненты вектора по индексу:" + componentVector.getComponent(3));
 
             System.out.println("Сумма двух векторов:" + Vector.getSum(v1, v2));
             System.out.println("Разность двух векторов:" + Vector.getDifference(v1, v2));

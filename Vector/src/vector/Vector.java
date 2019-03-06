@@ -93,11 +93,11 @@ public class Vector {
         return Math.sqrt(length);
     }
 
-    public void setComponents(int index, double number) {
+    public void setComponent(int index, double number) {
         components[index] = number;
     }
 
-    public double getComponents(int index) {
+    public double getComponent(int index) {
         return components[index];
     }
 

@@ -28,10 +28,10 @@ public class Main {
 
             Matrix matrix3 = new Matrix(new double[][]{{1, 2, 3}, {1, 2, 3}, {1, 2, 3}});
             System.out.println(matrix3);
-            System.out.println("Определитель матрицы =  " + matrix3.calculateDeterminant(matrix3));
+            System.out.println("Определитель матрицы =  " + matrix3.calculateDeterminant());
 
             Vector vector4 = new Vector(new double[]{1, 2, 3});
-            System.out.println("Умножение матрицы на вектор: " + matrix3.multiplyMatrixByVector(vector4));
+            System.out.println("Умножение матрицы на вектор: " + matrix3.multiplyByVector(vector4));
 
             double[][] array1 = new double[][]{{1, 2, 3}, {1, 2, 3}, {1, 2, 3}};
             Matrix matrix4 = new Matrix(array1);
@@ -46,8 +46,8 @@ public class Main {
 
             Matrix matrix8 = new Matrix(array1);
             Matrix matrix9 = new Matrix(array2);
-            System.out.println("Сложение матриц2: " + Matrix.addMatrices2(matrix8, matrix9));
-            System.out.println("Разность матриц2: " + Matrix.differenceMatrices2(matrix8, matrix9));
+            System.out.println("Сложение матриц2: " + Matrix.addMatrices(matrix8, matrix9));
+            System.out.println("Разность матриц2: " + Matrix.differenceMatrices(matrix8, matrix9));
             System.out.println("Умножение матриц: " + Matrix.multiplyMatrices(matrix8, matrix9));
         } catch (IllegalArgumentException | IndexOutOfBoundsException e) {
             System.out.println("Ошибка: " + e.getMessage());

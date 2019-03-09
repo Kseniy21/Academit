@@ -101,7 +101,8 @@ public class Matrix {
         return this;
     }
 
-    public double calculateDeterminant(Matrix matrix) {
+    public double calculateDeterminant() {
+        Matrix matrix = new Matrix(this);
         if (matrix.getRowsCount() != matrix.getColumnsCount()) {
             throw new IllegalArgumentException("Для вычисления определителя матрица должна быть квадратной");
         }
@@ -126,9 +127,8 @@ public class Matrix {
                     minorNewRow.setComponent(n, matrix.rows[j].getComponent(m));
                     m++;
                 }
-                minor.setRowByIndex(j - 1, minorNewRow);
             }
-            result += Math.pow((double) -1, i) * matrix.rows[0].getComponent(i) * calculateDeterminant(minor);
+            result += Math.pow((double) -1, i) * matrix.rows[0].getComponent(i) * minor.calculateDeterminant();
         }
         return result;
     }
@@ -146,7 +146,7 @@ public class Matrix {
         return sb.toString();
     }
 
-    public Vector multiplyMatrixByVector(Vector vector) {
+    public Vector multiplyByVector(Vector vector) {
         if (getColumnsCount() != vector.getSize()) {
             throw new IllegalArgumentException("Количество столбцов матрицы должно быть равно размерности вектора");
         }
@@ -179,7 +179,7 @@ public class Matrix {
         return this;
     }
 
-    public static Matrix addMatrices2(Matrix m1, Matrix m2) {
+    public static Matrix addMatrices(Matrix m1, Matrix m2) {
         if (m1.getRowsCount() != m2.getRowsCount() || m1.getColumnsCount() != m2.getColumnsCount()) {
             throw new IllegalArgumentException("Сложение возможно только для матриц одинаковой размерности");
         }
@@ -187,7 +187,7 @@ public class Matrix {
         return matrix.addMatrices(m2);
     }
 
-    public static Matrix differenceMatrices2(Matrix m1, Matrix m2) {
+    public static Matrix differenceMatrices(Matrix m1, Matrix m2) {
         if (m1.getRowsCount() != m2.getRowsCount() || m1.getColumnsCount() != m2.getColumnsCount()) {
             throw new IllegalArgumentException("Вычитание возможно только для матриц одинаковой размерности");
         }

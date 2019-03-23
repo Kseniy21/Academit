@@ -26,11 +26,11 @@ public class Main {
             System.out.println("Транспонирование матрицы:" + matrix2);
             System.out.println("Умножение матрицы на скаляр: " + matrix2.multiplicationScalar(2));
 
-            Matrix matrix3 = new Matrix(new double[][]{{1, 2, 3}, {1, 2, 3}, {1, 2, 3}});
+            Matrix matrix3 = new Matrix(new double[][]{{2, 4, 1, 1}, {0, 2, 1, 0}, {2, 1, 1, 3}, {4, 0, 2, 3}});
             System.out.println(matrix3);
             System.out.println("Определитель матрицы =  " + matrix3.calculateDeterminant());
 
-            Vector vector4 = new Vector(new double[]{1, 2, 3});
+            Vector vector4 = new Vector(new double[]{1, 2, 3, 4});
             System.out.println("Умножение матрицы на вектор: " + matrix3.multiplyByVector(vector4));
 
             double[][] array1 = new double[][]{{1, 2, 3}, {1, 2, 3}, {1, 2, 3}};

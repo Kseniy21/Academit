@@ -102,33 +102,32 @@ public class Matrix {
     }
 
     public double calculateDeterminant() {
-        Matrix matrix = new Matrix(this);
-        if (matrix.getRowsCount() != matrix.getColumnsCount()) {
+        if (this.getRowsCount() != this.getColumnsCount()) {
             throw new IllegalArgumentException("Для вычисления определителя матрица должна быть квадратной");
         }
 
-        if (matrix.getRowsCount() == 1) {
-            return matrix.rows[0].getComponent(0);
+        if (this.getRowsCount() == 1) {
+            return this.rows[0].getComponent(0);
         }
-        if (matrix.getRowsCount() == 2) {
-            return matrix.rows[0].getComponent(0) * matrix.rows[1].getComponent(1)
-                    - matrix.rows[1].getComponent(0) * matrix.rows[0].getComponent(1);
+        if (this.getRowsCount() == 2) {
+            return this.rows[0].getComponent(0) * this.rows[1].getComponent(1)
+                    - this.rows[1].getComponent(0) * this.rows[0].getComponent(1);
         }
+        Matrix matrix = new Matrix(this);
         double result = 0;
-        for (int i = 0; i < matrix.getRowsCount(); i++) {
-            Matrix minor = new Matrix(matrix.getRowsCount() - 1, matrix.getRowsCount() - 1);
-            for (int j = 1; j < matrix.getRowsCount(); j++) {
-                Vector minorNewRow = new Vector(matrix.getRowsCount() - 1);
-                int m = 0;
-                for (int n = 0; n < matrix.getRowsCount() - 1; n++) {
-                    if (m == i) {
-                        m++;
+        for (int i = 0; i < getColumnsCount(); i++) {
+            double[][] temp = new double[getRowsCount() - 1][getColumnsCount() - 1];
+            for (int j = 1; j < getRowsCount(); j++) {
+                int columnIndex = 0;
+                for (int n = 0; n < getRowsCount(); n++) {
+                    if (n == i) {
+                        continue;
                     }
-                    minorNewRow.setComponent(n, matrix.rows[j].getComponent(m));
-                    m++;
+                    temp[j - 1][columnIndex] = matrix.rows[j].getComponent(n);
+                    columnIndex++;
                 }
             }
-            result += Math.pow((double) -1, i) * matrix.rows[0].getComponent(i) * minor.calculateDeterminant();
+            result += Math.pow(-1, i) * matrix.rows[0].getComponent(i) *  new Matrix(temp).calculateDeterminant();
         }
         return result;
     }

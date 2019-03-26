@@ -8,13 +8,15 @@ import java.util.Scanner;
 
 public class ArrayListHome {
     public static void main(String[] args) throws FileNotFoundException {
-        ArrayList<Integer> arrList = new ArrayList<>();
+        ArrayList<String> arrList = new ArrayList<>();
 
         try (Scanner scanner = new Scanner(new FileInputStream("list.txt"))) {
             while (scanner.hasNextLine()) {
-                arrList.add(scanner.nextInt());
+                arrList.add(scanner.nextLine());
             }
             System.out.println(arrList);
+        } catch (FileNotFoundException message) {
+            System.out.println("Указанный файл отсутствует.");
         }
 
         ArrayList<Integer> numbersList = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1));

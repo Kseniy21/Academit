@@ -113,7 +113,6 @@ public class Matrix {
             return this.rows[0].getComponent(0) * this.rows[1].getComponent(1)
                     - this.rows[1].getComponent(0) * this.rows[0].getComponent(1);
         }
-        Matrix matrix = new Matrix(this);
         double result = 0;
         for (int i = 0; i < getColumnsCount(); i++) {
             double[][] temp = new double[getRowsCount() - 1][getColumnsCount() - 1];
@@ -123,11 +122,11 @@ public class Matrix {
                     if (n == i) {
                         continue;
                     }
-                    temp[j - 1][columnIndex] = matrix.rows[j].getComponent(n);
+                    temp[j - 1][columnIndex] = this.rows[j].getComponent(n);
                     columnIndex++;
                 }
             }
-            result += Math.pow(-1, i) * matrix.rows[0].getComponent(i) *  new Matrix(temp).calculateDeterminant();
+            result += Math.pow(-1, i) * this.rows[0].getComponent(i) * new Matrix(temp).calculateDeterminant();
         }
         return result;
     }

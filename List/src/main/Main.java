@@ -29,7 +29,7 @@ public class Main {
         list.insertFirstElement(10);
         System.out.println("Лист после вставки элемента в начало списка: " + list);
 
-        list.insertElementByIndex(10, 2);
+        list.insertElementByIndex(100, 2);
         System.out.println("Лист после вставки элемента по индексу 2: " + list);
 
         list.deleteByData(0);

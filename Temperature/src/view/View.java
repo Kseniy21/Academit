@@ -6,7 +6,7 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class View extends JFrame {
-    private JLabel textLabel = new JLabel("Введите значение:");
+    private JLabel textLabel = new JLabel("Введите значение: ");
     private JTextField textField = new JTextField(10);
     private JTextField textFieldResult = new JTextField(10);
     private JButton resultField = new JButton("Результат");
